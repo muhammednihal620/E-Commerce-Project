@@ -1,0 +1,210 @@
+﻿
+<%@ Master Language="C#" AutoEventWireup="true"
+    CodeFile="Site.master.cs" Inherits="Site" %>
+
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head id="Head1" runat="server">
+
+    <title>ZED CART</title>
+
+    <asp:ContentPlaceHolder
+        ID="head"
+        runat="server">
+    </asp:ContentPlaceHolder>
+
+    <style type="text/css">
+
+        * {
+            box-sizing: border-box;
+        }
+
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+            background-color: #f5f7fa;
+        }
+
+        .header {
+            height: 75px;
+            background-color: #0b3d91;
+            display: flex;
+            align-items: center;
+            padding: 0 40px;
+            color: white;
+        }
+
+        .logo {
+            font-size: 25px;
+            font-weight: bold;
+            margin-right: 50px;
+        }
+
+        .logo span {
+            color: #ffd700;
+        }
+
+        .menu {
+            display: flex;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .menu a {
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .menu a:hover {
+            color: #ffd700;
+        }
+
+        .search-box {
+            margin-left: auto;
+            display: flex;
+        }
+
+        .search-box input {
+            width: 230px;
+            height: 38px;
+            border: none;
+            padding: 10px;
+            border-radius: 5px 0 0 5px;
+        }
+
+        .search-box button {
+            height: 38px;
+            border: none;
+            padding: 0 18px;
+            background-color: #ffcc00;
+            cursor: pointer;
+            border-radius: 0 5px 5px 0;
+        }
+
+        .cart {
+            margin-left: 25px;
+            color: white;
+            text-decoration: none;
+            font-size: 16px;
+        }
+
+        .content {
+            min-height: 500px;
+            padding: 30px 40px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<form id="form1" runat="server">
+
+    <div class="header">
+
+        <div class="logo">
+            🛍 ZED<span>CART</span>
+        </div>
+
+        <div class="menu">
+
+            <a href="Default.aspx">Home</a>
+
+            <a href="Products.aspx">Products</a>
+
+            <a href="#">Categories</a>
+
+            <a href="#">About</a>
+
+            <asp:HyperLink
+                ID="lnkLogin"
+                runat="server"
+                NavigateUrl="Login.aspx"
+                ForeColor="White">
+                Login
+            </asp:HyperLink>
+
+            <asp:HyperLink
+                ID="lnkRegister"
+                runat="server"
+                NavigateUrl="Register.aspx"
+                ForeColor="White">
+                Register
+            </asp:HyperLink>
+
+            <asp:HyperLink
+                ID="lnkMyOrders"
+                runat="server"
+                NavigateUrl="MyOrders.aspx"
+                ForeColor="White">
+                My Orders
+            </asp:HyperLink>
+
+            <asp:LinkButton
+                ID="btnLogout"
+                runat="server"
+                OnClick="btnLogout_Click">
+                Logout
+            </asp:LinkButton>
+
+        </div>
+
+        <div class="search-box">
+
+            <asp:TextBox
+                ID="txtSearch"
+                runat="server"
+                CssClass="search-input"
+                placeholder="Search products...">
+            </asp:TextBox>
+
+            <asp:Button
+                ID="btnSearch"
+                runat="server"
+                Text="Search"
+                CssClass="search-button"
+                OnClick="btnSearch_Click" />
+
+        </div>
+
+        <asp:HyperLink
+            ID="lnkCart"
+            runat="server"
+            NavigateUrl="Cart.aspx"
+            CssClass="cart"
+            ForeColor="White">
+
+            🛒 Cart
+
+            <asp:Label
+                ID="lblCartCount"
+                runat="server"
+                Text="(0)"
+                ForeColor="White">
+            </asp:Label>
+
+        </asp:HyperLink>
+
+    </div>
+
+
+    <div class="content">
+
+        <asp:ContentPlaceHolder
+            ID="ContentPlaceHolder1"
+            runat="server">
+        </asp:ContentPlaceHolder>
+
+    </div>
+
+</form>
+
+</body>
+
+</html>
+
